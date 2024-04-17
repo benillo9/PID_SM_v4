@@ -1,0 +1,10 @@
+png('figs/histograma_parciales_cursos.png')
+par(mfrow=c(2,2))#esto es para representar dos figuras al lado una de la otra
+hist(vector_np22_23,main="Primer parcial, curso 22-23",xlab="Calificación",ylab="Frecuencias absolutas")
+hist(vector_nsp22_23,main="Segundo parcial, curso 22-23",xlab="Calificación",ylab="Frecuencias absolutas")
+hist(vector_np23_24,main="Primer parcial, curso 23-24",xlab="Calificación",ylab="Frecuencias absolutas")
+hist(vector_nsp23_24,main="Segundo parcial, curso 23-24",xlab="Calificación",ylab="Frecuencias absolutas")
+#png('figs/histograma_primer_parcial_22-23.png')
+#png('figs/histograma_primer_parcial_23-24.png')
+#hist(vector_np23_24)
+par(mfrow=c(1,1))
