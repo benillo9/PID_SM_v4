@@ -16,7 +16,7 @@ hist(data_hist$final)
 #gráfico densidad para toda la serie de datos
 data_hist%>%
   ggplot(aes(final)) +
-  geom_density(fill="blue")
+  geom_density(fill="blue",adjust=1.5)
 
 
 par(mfrow=c(2,2))#esto es para representar dos figuras al lado una de la otra

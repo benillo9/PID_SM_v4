@@ -4,7 +4,7 @@ library(ggrepel)
 library(gridExtra)
 library(devtools)
 library(lemon)
-png('figs/aprobadosprimer_y_final.png')
+png('figs/aprobadosprimer_y_segundo_y_final.png')
 
 #gráfico del primer parcial-total
 plot_pp_total<- notasparciales%>%ggplot(aes(nota_pp,final))
@@ -37,4 +37,28 @@ plot_sp_total<-plot_sp_total +
 nt <- theme(legend.position='none')
 grid_arrange_shared_legend(plot_pp_total, arrangeGrob(plot_sp_total+nt, ncol=1), ncol=1, nrow=2)
 
-#grid.arrange(plot_pp_total, plot_sp_total, ncol = 2)
+#rehago las gráficas con un modo de visualización diferente, para las notas del primer parcial
+
+png('figs/aprobados_primer_parcial_y_final.png')
+notasparciales%>%
+  ggplot(aes(nota_pp,final, col = repite)) +
+  geom_point() +
+  geom_vline(xintercept = 4.5,lty = 1, color = "black") +
+  geom_hline(yintercept = 5,lty = 1, color = "black") +
+  xlab("Calificación primer parcial") + 
+  ylab("Calificación final") +
+  ggtitle("Aprobados 1er parcial - Aprobados asignatura")+
+  facet_grid(repite~curso)
+
+#rehago las gráficas con un modo de visualización diferente para las notas del segundoparcial
+
+png('figs/aprobados_segundo_parcial_y_final.png')
+notasparciales%>%
+  ggplot(aes(nota_sp,final, col = repite)) +
+  geom_point() +
+  geom_vline(xintercept = 4.5,lty = 1, color = "black") +
+  geom_hline(yintercept = 5,lty = 1, color = "black") +
+  xlab("Calificación segundo parcial") + 
+  ylab("Calificación final") +
+  ggtitle("Aprobados 2o parcial - Aprobados asignatura")+
+  facet_grid(repite~curso)
